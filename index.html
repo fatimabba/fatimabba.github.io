@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fatima Abba — economics, historical political economy, and state capacity in West Africa.">
+<title>Fatima Abba</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column with a narrow metadata rail, set like a working paper.
+   Accent drawn from the Nigeria Blue Books — the bound colonial ledgers the research rests on. */
+:root{
+  --paper:#FBFAF8; --ink:#16181D; --muted:#5A6072; --accent:#1F3A5F; --rule:#E3E1DC; --tint:#F1EFEA;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#13151A; --ink:#E9E7E2; --muted:#98A0B0; --accent:#8BB0DA; --rule:#282C35; --tint:#1A1D24;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#13151A; --ink:#E9E7E2; --muted:#98A0B0; --accent:#8BB0DA; --rule:#282C35; --tint:#1A1D24;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.65;
+  margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:46rem;margin:0 auto;padding-block:4rem 5rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+header{display:grid;grid-template-columns:1fr auto;gap:0 2.75rem;align-items:start;padding-bottom:2.25rem;border-bottom:1px solid var(--rule)}
+.intro{display:flex;flex-direction:column;gap:1.1rem;min-width:0}
+.portrait{width:12rem;max-width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 30%;display:block;border-radius:3px;border:1px solid var(--rule)}
+.status{font-size:.9rem;color:var(--muted);margin:0}
+h1{
+  font-family:var(--serif); font-weight:600; font-size:clamp(2.3rem,7vw,3.1rem);
+  line-height:1.05; letter-spacing:-.015em; margin:0; text-wrap:balance;
+}
+.standfirst{font-family:var(--serif);font-size:1.18rem;line-height:1.5;color:var(--ink);margin:0;max-width:34rem}
+.fields{font-family:var(--mono);font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:0}
+
+section{padding-block:2.5rem;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+h2{
+  font-family:var(--mono); font-size:.76rem; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 1.6rem;
+}
+h3{font-family:var(--serif);font-weight:600;font-size:1.22rem;line-height:1.3;margin:0 0 .15rem;text-wrap:balance}
+p{margin:0}
+
+.entry{display:grid;grid-template-columns:8.5rem 1fr;gap:0 1.75rem;padding-block:1.1rem}
+.entry:first-of-type{padding-top:0}
+.entry:last-of-type{padding-bottom:0}
+.entry + .entry{border-top:1px solid var(--rule)}
+.when{font-family:var(--mono);font-size:.78rem;color:var(--muted);line-height:1.6;padding-top:.3rem}
+.body{min-width:0;display:flex;flex-direction:column;gap:.55rem}
+.where{font-size:.9rem;color:var(--muted);margin:0}
+.desc{font-size:.97rem;color:var(--ink);max-width:34rem}
+.note{font-size:.88rem;color:var(--muted);max-width:34rem}
+
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.45rem}
+.kv{display:grid;grid-template-columns:8.5rem 1fr;gap:0 1.75rem}
+.kv dt{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:.15rem}
+.kv dd{margin:0;font-size:.95rem;min-width:0}
+.kv > dd + dt{margin-top:.85rem}
+
+.contact{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:baseline}
+.email{font-family:var(--mono);font-size:.95rem;color:var(--ink);background:var(--tint);padding:.35rem .6rem;border-radius:3px;border:1px solid var(--rule);user-select:all}
+button.copy{
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule);color:var(--muted);
+  padding:.4rem .7rem;border-radius:3px;cursor:pointer;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+footer{padding-top:2.5rem;font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.04em}
+
+@media (max-width:34rem){
+  .wrap{padding-block:2.75rem 3.5rem}
+  header{grid-template-columns:1fr;gap:1.75rem 0}
+  .portrait{width:10rem}
+  .entry,.kv{grid-template-columns:1fr;gap:.35rem}
+  .when{padding-top:0}
+  .kv > dd + dt{margin-top:1rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="intro">
+    <h1>Fatima Abba</h1>
+    <p class="standfirst">I am interested in where the capacity of a state to tax, govern and deliver anything to its citizens comes from, why it is so unevenly spread, and how much of that unevenness was set in place long before anyone now living was born. Most of my work is empirical and most of it starts in an archive: colonial ledgers, census returns, hand-drawn boundary maps, turned into data that can carry a research design.</p>
+    <p class="status">Economics B.S., Pace University, December 2026</p>
+    <p class="fields">Development Economics · Political Economy · Applied Microeconometrics</p>
+  </div>
+  <img class="portrait" src="portrait.jpg" alt="Fatima Abba outside Pace University" width="720" height="720">
+</header>
+
+<section>
+  <h2>Research</h2>
+
+  <div class="entry">
+    <p class="when">2025 —</p>
+    <div class="body">
+      <h3>Colonial taxation and state capacity in northern Nigeria</h3>
+      <p class="where">Research assistant to Augustin Bergeron, Harvard University</p>
+      <p class="desc">Whether the fiscal authority of the Sokoto Caliphate, a nineteenth-century West African empire, left an imprint on how the state collects tax today. The design compares places just inside and just outside the Caliphate's edge, which means the result depends entirely on where that edge is taken to be, and the administrators, the historians and the archival maps do not agree. I run the discontinuity and matching estimates across each competing definition rather than picking one, so the reader can see which conclusions survive the disagreement and which do not.</p>
+      <p class="note">Much of the year went into making the comparison defensible at all: a suitability surface built from 1840–1959 climate records, so that the border is not standing in for where herding happened to be viable, and classification prompts for a language-model pipeline reading 40,000 colonial documents, with a hand-coded sample behind it to measure the error rate before any of the output was treated as data.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <p class="when">2025 —</p>
+    <div class="body">
+      <h3>Colonial public finance, 1910–1946</h3>
+      <p class="where">Research assistant to Abdoulaye Ndiaye, NYU Stern</p>
+      <p class="desc">A provincial panel of revenue, population and public-goods access, built out of thirty-six years of the Nigeria Blue Books and the 1931 and 1952–53 censuses. The Blue Books were never meant to be read as a series: categories are renamed, provinces are split and merged, and a figure recorded in one year is not always the same quantity in the next. Making it a panel meant deciding, year by year, what counted as the same place and the same line item, and georeferencing the archival maps with thin-plate splines to place those provinces on modern administrative units.</p>
+      <p class="note">Alongside it, archival work on tax revolts and riots from the Caliphate era through the colonial period. Several districts turn out to have been nominally taxed and never effectively taxed, which is not a footnote: it changes which places the design can count as treated.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <p class="when">2025</p>
+    <div class="body">
+      <h3>Measuring US income inequality</h3>
+      <p class="where">Research assistant to Veronika Dolar, Pace University</p>
+      <p class="desc">Gini and 90/10 series across fifty years of Census and IRS data, where the definition of income shifts from one vintage to the next and a jump in the series can easily be an artifact of the change rather than anything that happened to anyone. Harmonizing those measures was most of the work. The chapter also sets the US against 22 other economies on the Great Gatsby curve, where it sits at the high-inequality, low-mobility end.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Writing</h2>
+
+  <div class="entry">
+    <p class="when">April 2026</p>
+    <div class="body">
+      <h3>Who Owns the Oil, Who Gets the Violence?</h3>
+      <p class="where">Senior thesis · Divestment, governance and conflict in Nigeria's oil sector</p>
+      <p class="desc">Whether transferring oil fields from multinational to local operators changes conflict nearby. A staggered difference-in-differences design on 314 fields between 2006 and 2016, with a governance index built from survey data, estimated under several of the recent corrections for staggered adoption. The association holds across them. The sensitivity analysis will not carry a causal claim, so I report it as fragile rather than as a finding, which is the part of the project I learned the most from.</p>
+      <p class="note">Presented at the Pace Seminar in Economic Theory.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <p class="when">Forthcoming</p>
+    <div class="body">
+      <h3>Understanding Economic Inequality</h3>
+      <p class="where">Applying Economic Thinking to Today's Divides · with Veronika Dolar</p>
+      <p class="desc">Co-author of the introductory chapter and “Social Mobility and Economic Opportunity”.</p>
+      <p class="note">Presented at the National Conference on Undergraduate Research.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Background</h2>
+  <dl class="kv">
+    <dt>Education</dt>
+    <dd>B.S. Economics, Pace University, December 2026. Real analysis through Riemann integration as an independent study; intermediate micro and macro, probability and statistics, quantitative analysis, calculus.</dd>
+    <dt>Tools</dt>
+    <dd>Stata, R, Python, SQL, QGIS, GDAL, LaTeX, Git.</dd>
+    <dt>Languages</dt>
+    <dd>English, Hausa, Fulfulde.</dd>
+    <dt>From</dt>
+    <dd>Kaduna State, Nigeria.</dd>
+  </dl>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <div class="contact">
+    <span class="email" id="addr">abba4031@gmail.com</span>
+    <button class="copy" id="copy" type="button">Copy</button>
+  </div>
+  <p class="note" style="margin-top:1rem">CV and references on request.</p>
+</section>
+
+<footer>Last updated October 2026</footer>
+
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy'),addr=document.getElementById('addr');
+  if(!btn||!addr)return;
+  btn.addEventListener('click',function(){
+    var text=addr.textContent.trim();
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+    try{
+      navigator.clipboard.writeText(text).then(done,select);
+    }catch(e){select()}
+    function select(){
+      var r=document.createRange();r.selectNodeContents(addr);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      btn.textContent='Selected';setTimeout(function(){btn.textContent='Copy'},1600);
+    }
+  });
+})();
+</script>
+</body>
+</html>
